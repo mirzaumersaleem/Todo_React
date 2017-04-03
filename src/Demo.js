@@ -15,29 +15,7 @@ class Demo extends Component
       this.todo =  this.state.arr;
       localStorage.setItem("item",JSON.stringify(this.todo));
   }
-  /*retriveData(){
-      
-        //     this.todo = localStorage.getItem("item");
-        //     console.log("Before",this.todo);
-        // this.todo=JSON.parse(this.todo);
-        //         console.log("affer",this.todo);
-        //         for (var i=0 ;i<this.todo.length;i++){
-        //                console.log("\n",this.todo[i]);
-        //               }
-     this.state.temp1=localStorage.getItem("item");
-     this.state.temp1=JSON.parse(this.state.temp1);
-     this.setState({
-         arr:this.state.temp1
-     })
-      return(
-                this.state.arr.map((item, index) => {
-                return <li key={index} >
-                     {item}  <button onClick={this.deleteEntry.bind(this,index)}> delete</button>
-                     
-                </li>
-            })
-      )
-    }*/
+
   getlist(){
         return (
             
@@ -61,15 +39,14 @@ class Demo extends Component
     
          this.state.arr.push(this.state.inputText);
          this.setLocalStorage();
-        //databaseData();
+    
         this.setState({
         arr:this.state.arr,
       inputText:''
      
         })
         event.preventDefault();
-        
-        // this.retriveData()
+
     }
     deleteEntry(index){
        this.state.arr.splice(index,1);
