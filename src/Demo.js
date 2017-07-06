@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import { Button } from 'react-bootstrap';
 class Demo extends Component
 {
    constructor(){
@@ -21,7 +22,7 @@ class Demo extends Component
             
             this.state.arr.map((item, index) => {
                 return <li key={index} >
-                     {item}  <button onClick={this.deleteEntry.bind(this,index)}> delete</button>
+                     {item}  <Button bsStyle="success" bsSize="small" onClick={this.deleteEntry.bind(this,index)}> delete</Button>
                      
                 </li>
             }
@@ -29,10 +30,11 @@ class Demo extends Component
         )
     }
      setLocalStorage(){    
-         localStorage.setItem("item",JSON.stringify(this.state.arr))}
-  inputChange(changeValue){        
+        localStorage.setItem("item",JSON.stringify(this.state.arr))
+    }
+    inputChange(changeValue){        
             this.setState(
-			{inputText:changeValue.target.value});
+            {inputText:changeValue.target.value});
     }
     addValue(event)
     {
@@ -76,12 +78,12 @@ this.setState({
      <ul>
          <form onSubmit={this.addValue.bind(this)}>
               <input type="text" value={this.state.inputText} onChange={this.inputChange.bind(this)}/>
-               <button onClick={this.addValue.bind(this)} >Add </button></form>
+               <Button bsStyle="success" bsSize="large" onClick={this.addValue.bind(this)} >Add </Button></form>
 
          {this.getlist()}
         
      </ul>
-     <button onClick={this.deleteall.bind(this)}> Delete All</button>
+     <Button bsStyle="danger"bsSize="large" onClick={this.deleteall.bind(this)}> Delete All</Button>
      
      
      </div>
