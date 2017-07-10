@@ -12,7 +12,7 @@ class ViewTodo extends Component{
             
             this.props.arr.map((item, index) => {
                 return <li key={index} >
-                     {item}  <Button bsStyle="success" bsSize="small" onClick={this.deleteEntry.bind(this,index)}> delete</Button>
+                     {item}  <Button bsStyle="success" bsSize="small" onClick={this.deleteEntry.bind(this,index)}> Task Complete</Button>
                      
                 </li>
             }
@@ -45,7 +45,7 @@ class ViewTodo extends Component{
 return(
 
     <div>
- <h1> hello from view !</h1>
+
    {this.getlist()}
  </div>
 );

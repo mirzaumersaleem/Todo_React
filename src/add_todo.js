@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import { Button } from 'react-bootstrap';
 import {FormControl} from  'react-bootstrap';
- import ViewTodo from './viewTodo';
+import ViewTodo from './viewTodo';
 class AddTodo extends Component
 {
      constructor(){
@@ -13,14 +13,14 @@ class AddTodo extends Component
                 temp1:''
                            }
                 }
-   setLocalStorage(){    
+ setLocalStorage(){    
         localStorage.setItem("item",JSON.stringify(this.state.arr))
     }
  inputChange(changeValue){        
             this.setState(
 			{inputText:changeValue.target.value});
     }
-    addValue(event)
+ addValue(event)
     {
     
          this.state.arr.push(this.state.inputText);
@@ -32,16 +32,29 @@ class AddTodo extends Component
      
         })
         event.preventDefault();
-
     }
+
+     deleteall(){
+      this.state.arr.splice(0,5)
+      this.setLocalStorage()
+      
+this.setState({
+  arr:this.state.arr
+
+})
+
+  }
 render(){
  return (
-  <div>
-   <h1>hello from Add !</h1>
-   <form>
-    <input type="text" value={this.state.inputText} onChange={this.inputChange.bind(this)}/>
-    <Button bsStyle="success" bsSize="large" onClick={this.addValue.bind(this)} >Add </Button></form>
-  <ViewTodo arr={this.state.arr}/>
+ <div>
+    
+    <form>
+            <input type="text" value={this.state.inputText} onChange={this.inputChange.bind(this)}/>
+            <Button bsStyle="success" bsSize="large" onClick={this.addValue.bind(this)} >Add Task </Button>
+      <Button bsStyle="danger"bsSize="large" onClick={this.deleteall.bind(this)}> Delete All</Button>
+              
+    </form>
+    <ViewTodo arr={this.state.arr}/>
  </div>
  );
 }
